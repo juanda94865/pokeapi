@@ -1,13 +1,25 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokéAPI App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#/">Inicio</a></li>
+        <li><a href="#/favoritos">Favoritos</a></li>
+        <li><a href="#/capturados">Capturados</a></li>
+        <li><a href="#/informativa">Acerca de</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido"></main>
+
+  <script type="module" src="src/main.js"></script>
+</body>
 </html>

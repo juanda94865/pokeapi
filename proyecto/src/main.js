@@ -1,24 +1,34 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { mostrarHome } from "./home.js";
+import { mostrarFavoritos } from "./favoritos.js";
+import { mostrarCapturados } from "./capturados.js";
+import { mostrarInformativa } from "./informativa.js";
+import { mostrarDetalle } from "./pokemon.js";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+function router() {
+  const hash = window.location.hash || "#/";
+  const [_, route, param] = hash.split("/");
 
-setupCounter(document.querySelector('#counter'))
+  switch (route) {
+    case "":
+      mostrarHome();
+      break;
+    case "pokemon":
+      if (param) mostrarDetalle(param);
+      else mostrarHome();
+      break;
+    case "favoritos":
+      mostrarFavoritos();
+      break;
+    case "capturados":
+      mostrarCapturados();
+      break;
+    case "informativa":
+      mostrarInformativa();
+      break;
+    default:
+      mostrarHome();
+  }
+}
+
+window.addEventListener("hashchange", router);
+window.addEventListener("load", router);
